@@ -53,7 +53,6 @@ def app(environ, start_response):
     template = env.get_template(path)
     return template
 
-# Оборачиваем WSGI приложение в middleware
 app = WsgiTopBottomMiddleware(app)
 req = Request.blank('/')
 print(req.get_response(app))
